@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+package seed_generation;
+
+option go_package = "codebreakers.com/proto/seed_generation";
+
+service SeedGenerationService {
+  rpc GetSeed (.seed_generation.GetSeedRequest) returns (.seed_generation.GetSeedResponse) {}
+  rpc Ping (.seed_generation.PingRequest) returns (.seed_generation.PingResponse) {}
+  rpc StressTest (.seed_generation.StressTestRequest) returns (.seed_generation.StressTestResponse) {}
+}
+
+message GetSeedRequest {
+  string username = 1;
+  string password = 2;
+}
+
+message GetSeedResponse {
+  int64 seed = 1;
+  int64 count = 2;
+}
+
+message StressTestRequest {
+  int64 count = 1;
+}
+
+message StressTestResponse {
+  int64 response = 1;
+}
+
+message PingRequest {
+  int64 ping = 1;
+}
+
+message PingResponse {
+  int64 response = 1;
+}
+

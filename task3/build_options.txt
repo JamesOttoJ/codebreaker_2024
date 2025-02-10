@@ -1,0 +1,22 @@
+path	otp/server
+mod	otp	(devel)	
+dep	auth	v0.0.0-00010101000000-000000000000
+=>	../auth_service	(devel)	
+
+dep	golang.org/x/net	v0.22.0	h1:9sGLhx7iRIHEiX0oAJ3MRZMUCElJgy7Br1nO+AMN3Tc=
+dep	golang.org/x/sys	v0.18.0	h1:DBdB3niSjOA/O0blCZBqDefyWNYveAYMNF1Wum0DYQ4=
+dep	golang.org/x/text	v0.14.0	h1:ScX5w1eTa3QqT8oi6+ziP7dTV1S2+ALU0bI+0zXKWiQ=
+dep	google.golang.org/genproto/googleapis/rpc	v0.0.0-20240318140521-94a12d6c2237	h1:NnYq6UN9ReLM9/Y01KWNOWyI5xQ9kbIms5GGJVwS/Yc=
+dep	google.golang.org/grpc	v1.64.0	h1:KH3VH9y/MgNQg1dE7b3XfVK0GsPSIzJwdF617gUSbvY=
+dep	google.golang.org/protobuf	v1.34.2	h1:6xV6lTsCfpGD21XK49h7MhtcApnLqkfYgPcdHftf6hg=
+build	-buildmode=exe
+build	-compiler=gc
+build	-tags=release
+build	CGO_ENABLED=1
+build	CGO_CFLAGS=
+build	CGO_CPPFLAGS=
+build	CGO_CXXFLAGS=
+build	CGO_LDFLAGS=
+build	GOARCH=amd64
+build	GOOS=linux
+build	GOAMD64=v1

@@ -1,0 +1,67 @@
+syntax = "proto3";
+
+package auth_service;
+
+option go_package = "./auth_service";
+
+service AuthService {
+  rpc Authenticate (.auth_service.AuthRequest) returns (.auth_service.AuthResponse) {}
+  rpc RegisterOTPSeed (.auth_service.RegisterOTPSeedRequest) returns (.auth_service.RegisterOTPSeedResponse) {}
+  rpc VerifyOTP (.auth_service.VerifyOTPRequest) returns (.auth_service.VerifyOTPResponse) {}
+  rpc RefreshToken (.auth_service.RefreshTokenRequest) returns (.auth_service.RefreshTokenResponse) {}
+  rpc Logout (.auth_service.LogoutRequest) returns (.auth_service.LogoutResponse) {}
+  rpc Ping (.auth_service.PingRequest) returns (.auth_service.PingResponse) {}
+}
+
+message AuthRequest {
+  string username = 1;
+  string password = 2;
+}
+
+message AuthResponse {
+  bool success = 1;
+}
+
+message RegisterOTPSeedRequest {
+  string username = 1;
+  int64 seed = 2;
+}
+
+message RegisterOTPSeedResponse {
+  bool success = 1;
+}
+
+message VerifyOTPRequest {
+  string username = 1;
+  int64 otp = 2;
+}
+
+message VerifyOTPResponse {
+  bool success = 1;
+  string token = 2;
+}
+
+message RefreshTokenRequest {
+  string token = 1;
+}
+
+message RefreshTokenResponse {
+  string token = 1;
+}
+
+message LogoutRequest {
+  string token = 1;
+}
+
+message LogoutResponse {
+  bool success = 1;
+}
+
+message PingRequest {
+  int64 ping = 1;
+}
+
+message PingResponse {
+  int64 response = 1;
+}
+
