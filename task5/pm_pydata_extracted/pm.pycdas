@@ -1,0 +1,1234 @@
+pm.pyc (Python 3.11)
+[Code]
+    File Name: pm.py
+    Object Name: <module>
+    Qualified Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Stack Size: 6
+    Flags: 0x00000000
+    [Names]
+        'os'
+        'sys'
+        'base64'
+        'getpass'
+        'hashlib'
+        'time'
+        'string'
+        'random'
+        'cryptography.hazmat.primitives.ciphers'
+        'Cipher'
+        'algorithms'
+        'modes'
+        'cryptography.hazmat.primitives'
+        'serialization'
+        'cryptography.hazmat.primitives.kdf.pbkdf2'
+        'PBKDF2HMAC'
+        'cryptography.hazmat.backends'
+        'default_backend'
+        'hashes'
+        'SALT'
+        'str'
+        'bytes'
+        'derive_key'
+        'int'
+        'generate_password'
+        'encrypt_password'
+        'decrypt_password'
+        'save_password'
+        'load_password'
+        'usage'
+        'main'
+        '__name__'
+    [Locals+Names]
+    [Constants]
+        0
+        None
+        (
+            'getpass'
+        )
+        (
+            'Cipher'
+            'algorithms'
+            'modes'
+        )
+        (
+            'serialization'
+        )
+        (
+            'PBKDF2HMAC'
+        )
+        (
+            'default_backend'
+        )
+        (
+            'hashes'
+        )
+        b'\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        'password'
+        'return'
+        [Code]
+            File Name: pm.py
+            Object Name: derive_key
+            Qualified Name: derive_key
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 8
+            Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+            [Names]
+                'PBKDF2HMAC'
+                'hashes'
+                'SHA256'
+                'SALT'
+                'default_backend'
+                'derive'
+                'encode'
+            [Locals+Names]
+                'password'
+                'kdf'
+            [Constants]
+                None
+                32
+                100000
+                (
+                    'algorithm'
+                    'length'
+                    'salt'
+                    'iterations'
+                    'backend'
+                )
+            [Disassembly]
+                0       RESUME                          0
+                2       LOAD_GLOBAL                     1: NULL + PBKDF2HMAC
+                14      LOAD_GLOBAL                     3: NULL + hashes
+                26      LOAD_ATTR                       2: SHA256
+                36      PRECALL                         0
+                40      CALL                            0
+                50      LOAD_CONST                      1: 32
+                52      LOAD_GLOBAL                     6: SALT
+                64      LOAD_CONST                      2: 100000
+                66      LOAD_GLOBAL                     9: NULL + default_backend
+                78      PRECALL                         0
+                82      CALL                            0
+                92      KW_NAMES                        3: ('algorithm', 'length', 'salt', 'iterations', 'backend')
+                94      PRECALL                         5
+                98      CALL                            5
+                108     STORE_FAST                      1: kdf
+                110     LOAD_FAST                       1: kdf
+                112     LOAD_METHOD                     5: derive
+                134     LOAD_FAST                       0: password
+                136     LOAD_METHOD                     6: encode
+                158     PRECALL                         0
+                162     CALL                            0
+                172     PRECALL                         1
+                176     CALL                            1
+                186     RETURN_VALUE                    
+        'length'
+        [Code]
+            File Name: pm.py
+            Object Name: generate_password
+            Qualified Name: generate_password
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 6
+            Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+            [Names]
+                'string'
+                'ascii_letters'
+                'digits'
+                'punctuation'
+                'range'
+                'random'
+                'choice'
+                'append'
+                'print'
+                'join'
+            [Locals+Names]
+                'length'
+                'character_list'
+                'password'
+                'i'
+                'randomchar'
+            [Constants]
+                None
+                'Your password is '
+                ''
+            [Disassembly]
+                0       RESUME                          0
+                2       LOAD_GLOBAL                     0: string
+                14      LOAD_ATTR                       1: ascii_letters
+                24      LOAD_GLOBAL                     0: string
+                36      LOAD_ATTR                       2: digits
+                46      BINARY_OP                       0 (+)
+                50      LOAD_GLOBAL                     0: string
+                62      LOAD_ATTR                       3: punctuation
+                72      BINARY_OP                       0 (+)
+                76      STORE_FAST                      1: character_list
+                78      BUILD_LIST                      0
+                80      STORE_FAST                      2: password
+                82      LOAD_GLOBAL                     9: NULL + range
+                94      LOAD_FAST                       0: length
+                96      PRECALL                         1
+                100     CALL                            1
+                110     GET_ITER                        
+                112     FOR_ITER                        43 (to 200)
+                114     STORE_FAST                      3: i
+                116     LOAD_GLOBAL                     11: NULL + random
+                128     LOAD_ATTR                       6: choice
+                138     LOAD_FAST                       1: character_list
+                140     PRECALL                         1
+                144     CALL                            1
+                154     STORE_FAST                      4: randomchar
+                156     LOAD_FAST                       2: password
+                158     LOAD_METHOD                     7: append
+                180     LOAD_FAST                       4: randomchar
+                182     PRECALL                         1
+                186     CALL                            1
+                196     POP_TOP                         
+                198     JUMP_BACKWARD                   44 (to 112)
+                200     LOAD_GLOBAL                     17: NULL + print
+                212     LOAD_CONST                      1: 'Your password is '
+                214     LOAD_CONST                      2: ''
+                216     LOAD_METHOD                     9: join
+                238     LOAD_FAST                       2: password
+                240     PRECALL                         1
+                244     CALL                            1
+                254     BINARY_OP                       0 (+)
+                258     PRECALL                         1
+                262     CALL                            1
+                272     POP_TOP                         
+                274     LOAD_CONST                      2: ''
+                276     LOAD_METHOD                     9: join
+                298     LOAD_FAST                       2: password
+                300     PRECALL                         1
+                304     CALL                            1
+                314     RETURN_VALUE                    
+        'spassword'
+        [Code]
+            File Name: pm.py
+            Object Name: encrypt_password
+            Qualified Name: encrypt_password
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 6
+            Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+            [Names]
+                'derive_key'
+                'str'
+                'int'
+                'time'
+                'encode'
+                'hashlib'
+                'md5'
+                'digest'
+                'Cipher'
+                'algorithms'
+                'AES'
+                'modes'
+                'CFB'
+                'default_backend'
+                'encryptor'
+                'update'
+                'finalize'
+            [Locals+Names]
+                'spassword'
+                'password'
+                'key'
+                'ts'
+                'iv'
+                'cipher'
+                'encryptor'
+                'encrypted_password'
+            [Constants]
+                None
+                60
+                'utf-8'
+                (
+                    'backend'
+                )
+            [Disassembly]
+                0       RESUME                          0
+                2       LOAD_GLOBAL                     1: NULL + derive_key
+                14      LOAD_FAST                       1: password
+                16      PRECALL                         1
+                20      CALL                            1
+                30      STORE_FAST                      2: key
+                32      LOAD_GLOBAL                     3: NULL + str
+                44      LOAD_GLOBAL                     5: NULL + int
+                56      LOAD_GLOBAL                     7: NULL + time
+                68      LOAD_ATTR                       3: time
+                78      PRECALL                         0
+                82      CALL                            0
+                92      LOAD_CONST                      1: 60
+                94      BINARY_OP                       11 (/)
+                98      PRECALL                         1
+                102     CALL                            1
+                112     PRECALL                         1
+                116     CALL                            1
+                126     LOAD_METHOD                     4: encode
+                148     LOAD_CONST                      2: 'utf-8'
+                150     PRECALL                         1
+                154     CALL                            1
+                164     STORE_FAST                      3: ts
+                166     LOAD_GLOBAL                     11: NULL + hashlib
+                178     LOAD_ATTR                       6: md5
+                188     LOAD_FAST                       3: ts
+                190     PRECALL                         1
+                194     CALL                            1
+                204     LOAD_METHOD                     7: digest
+                226     PRECALL                         0
+                230     CALL                            0
+                240     STORE_FAST                      4: iv
+                242     LOAD_GLOBAL                     17: NULL + Cipher
+                254     LOAD_GLOBAL                     19: NULL + algorithms
+                266     LOAD_ATTR                       10: AES
+                276     LOAD_FAST                       2: key
+                278     PRECALL                         1
+                282     CALL                            1
+                292     LOAD_GLOBAL                     23: NULL + modes
+                304     LOAD_ATTR                       12: CFB
+                314     LOAD_FAST                       4: iv
+                316     PRECALL                         1
+                320     CALL                            1
+                330     LOAD_GLOBAL                     27: NULL + default_backend
+                342     PRECALL                         0
+                346     CALL                            0
+                356     KW_NAMES                        3: ('backend',)
+                358     PRECALL                         3
+                362     CALL                            3
+                372     STORE_FAST                      5: cipher
+                374     LOAD_FAST                       5: cipher
+                376     LOAD_METHOD                     14: encryptor
+                398     PRECALL                         0
+                402     CALL                            0
+                412     STORE_FAST                      6: encryptor
+                414     LOAD_FAST                       6: encryptor
+                416     LOAD_METHOD                     15: update
+                438     LOAD_FAST                       0: spassword
+                440     LOAD_METHOD                     4: encode
+                462     PRECALL                         0
+                466     CALL                            0
+                476     PRECALL                         1
+                480     CALL                            1
+                490     LOAD_FAST                       6: encryptor
+                492     LOAD_METHOD                     16: finalize
+                514     PRECALL                         0
+                518     CALL                            0
+                528     BINARY_OP                       0 (+)
+                532     STORE_FAST                      7: encrypted_password
+                534     LOAD_FAST                       4: iv
+                536     LOAD_FAST                       7: encrypted_password
+                538     BINARY_OP                       0 (+)
+                542     RETURN_VALUE                    
+        'encrypted_data'
+        [Code]
+            File Name: pm.py
+            Object Name: decrypt_password
+            Qualified Name: decrypt_password
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 6
+            Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+            [Names]
+                'derive_key'
+                'Cipher'
+                'algorithms'
+                'AES'
+                'modes'
+                'CFB'
+                'default_backend'
+                'decryptor'
+                'update'
+                'finalize'
+                'decode'
+            [Locals+Names]
+                'encrypted_data'
+                'password'
+                'key'
+                'iv'
+                'encrypted_password'
+                'cipher'
+                'decryptor'
+                'decrypted_password'
+            [Constants]
+                None
+                16
+                (
+                    'backend'
+                )
+            [Disassembly]
+                0       RESUME                          0
+                2       LOAD_GLOBAL                     1: NULL + derive_key
+                14      LOAD_FAST                       1: password
+                16      PRECALL                         1
+                20      CALL                            1
+                30      STORE_FAST                      2: key
+                32      LOAD_FAST                       0: encrypted_data
+                34      LOAD_CONST                      0: None
+                36      LOAD_CONST                      1: 16
+                38      BUILD_SLICE                     2
+                40      BINARY_SUBSCR                   
+                50      STORE_FAST                      3: iv
+                52      LOAD_FAST                       0: encrypted_data
+                54      LOAD_CONST                      1: 16
+                56      LOAD_CONST                      0: None
+                58      BUILD_SLICE                     2
+                60      BINARY_SUBSCR                   
+                70      STORE_FAST                      4: encrypted_password
+                72      LOAD_GLOBAL                     3: NULL + Cipher
+                84      LOAD_GLOBAL                     5: NULL + algorithms
+                96      LOAD_ATTR                       3: AES
+                106     LOAD_FAST                       2: key
+                108     PRECALL                         1
+                112     CALL                            1
+                122     LOAD_GLOBAL                     9: NULL + modes
+                134     LOAD_ATTR                       5: CFB
+                144     LOAD_FAST                       3: iv
+                146     PRECALL                         1
+                150     CALL                            1
+                160     LOAD_GLOBAL                     13: NULL + default_backend
+                172     PRECALL                         0
+                176     CALL                            0
+                186     KW_NAMES                        2: ('backend',)
+                188     PRECALL                         3
+                192     CALL                            3
+                202     STORE_FAST                      5: cipher
+                204     LOAD_FAST                       5: cipher
+                206     LOAD_METHOD                     7: decryptor
+                228     PRECALL                         0
+                232     CALL                            0
+                242     STORE_FAST                      6: decryptor
+                244     LOAD_FAST                       6: decryptor
+                246     LOAD_METHOD                     8: update
+                268     LOAD_FAST                       4: encrypted_password
+                270     PRECALL                         1
+                274     CALL                            1
+                284     LOAD_FAST                       6: decryptor
+                286     LOAD_METHOD                     9: finalize
+                308     PRECALL                         0
+                312     CALL                            0
+                322     BINARY_OP                       0 (+)
+                326     STORE_FAST                      7: decrypted_password
+                328     LOAD_FAST                       7: decrypted_password
+                330     LOAD_METHOD                     10: decode
+                352     PRECALL                         0
+                356     CALL                            0
+                366     RETURN_VALUE                    
+        'filename'
+        [Code]
+            File Name: pm.py
+            Object Name: save_password
+            Qualified Name: save_password
+            Arg Count: 3
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 6
+            Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+            [Names]
+                'encrypt_password'
+                'open'
+                'write'
+                'print'
+            [Locals+Names]
+                'filename'
+                'password'
+                'spassword'
+                'encrypted_password'
+                'file'
+            [Constants]
+                None
+                'wb'
+                'Successfully saved password to '
+            [Disassembly]
+                0       RESUME                          0
+                2       LOAD_GLOBAL                     1: NULL + encrypt_password
+                14      LOAD_FAST                       2: spassword
+                16      LOAD_FAST                       1: password
+                18      PRECALL                         2
+                22      CALL                            2
+                32      STORE_FAST                      3: encrypted_password
+                34      LOAD_GLOBAL                     3: NULL + open
+                46      LOAD_FAST                       0: filename
+                48      LOAD_CONST                      1: 'wb'
+                50      PRECALL                         2
+                54      CALL                            2
+                64      BEFORE_WITH                     
+                66      STORE_FAST                      4: file
+                68      LOAD_FAST                       4: file
+                70      LOAD_METHOD                     2: write
+                92      LOAD_FAST                       3: encrypted_password
+                94      PRECALL                         1
+                98      CALL                            1
+                108     POP_TOP                         
+                110     LOAD_GLOBAL                     7: NULL + print
+                122     LOAD_CONST                      2: 'Successfully saved password to '
+                124     LOAD_FAST                       0: filename
+                126     FORMAT_VALUE                    0 (FVC_NONE)
+                128     BUILD_STRING                    2
+                130     PRECALL                         1
+                134     CALL                            1
+                144     POP_TOP                         
+                146     LOAD_CONST                      0: None
+                148     LOAD_CONST                      0: None
+                150     LOAD_CONST                      0: None
+                152     PRECALL                         2
+                156     CALL                            2
+                166     POP_TOP                         
+                168     LOAD_CONST                      0: None
+                170     RETURN_VALUE                    
+                172     PUSH_EXC_INFO                   
+                174     WITH_EXCEPT_START               
+                176     POP_JUMP_FORWARD_IF_TRUE        4 (to 186)
+                178     RERAISE                         2
+                180     COPY                            3
+                182     POP_EXCEPT                      
+                184     RERAISE                         1
+                186     POP_TOP                         
+                188     POP_EXCEPT                      
+                190     POP_TOP                         
+                192     POP_TOP                         
+                194     LOAD_CONST                      0: None
+                196     RETURN_VALUE                    
+        [Code]
+            File Name: pm.py
+            Object Name: load_password
+            Qualified Name: load_password
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 6
+            Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+            [Names]
+                'open'
+                'read'
+                'decrypt_password'
+            [Locals+Names]
+                'filename'
+                'password'
+                'file'
+                'encrypted_data'
+            [Constants]
+                None
+                'rb'
+            [Disassembly]
+                0       RESUME                          0
+                2       LOAD_GLOBAL                     1: NULL + open
+                14      LOAD_FAST                       0: filename
+                16      LOAD_CONST                      1: 'rb'
+                18      PRECALL                         2
+                22      CALL                            2
+                32      BEFORE_WITH                     
+                34      STORE_FAST                      2: file
+                36      LOAD_FAST                       2: file
+                38      LOAD_METHOD                     1: read
+                60      PRECALL                         0
+                64      CALL                            0
+                74      STORE_FAST                      3: encrypted_data
+                76      LOAD_CONST                      0: None
+                78      LOAD_CONST                      0: None
+                80      LOAD_CONST                      0: None
+                82      PRECALL                         2
+                86      CALL                            2
+                96      POP_TOP                         
+                98      JUMP_FORWARD                    11 (to 122)
+                100     PUSH_EXC_INFO                   
+                102     WITH_EXCEPT_START               
+                104     POP_JUMP_FORWARD_IF_TRUE        4 (to 114)
+                106     RERAISE                         2
+                108     COPY                            3
+                110     POP_EXCEPT                      
+                112     RERAISE                         1
+                114     POP_TOP                         
+                116     POP_EXCEPT                      
+                118     POP_TOP                         
+                120     POP_TOP                         
+                122     LOAD_GLOBAL                     5: NULL + decrypt_password
+                134     LOAD_FAST                       3: encrypted_data
+                136     LOAD_FAST                       1: password
+                138     PRECALL                         2
+                142     CALL                            2
+                152     RETURN_VALUE                    
+        [Code]
+            File Name: pm.py
+            Object Name: usage
+            Qualified Name: usage
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 3
+            Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+            [Names]
+                'print'
+            [Locals+Names]
+            [Constants]
+                None
+                'Usage: pm.py <command>'
+                'Commands:'
+                '  init   - Create a new master password'
+                '  add    - Add a new password'
+                '  gen    - Generate a new password'
+                '  read   - Retrieve a password'
+                '  help   - Print this help file'
+            [Disassembly]
+                0       RESUME                          0
+                2       LOAD_GLOBAL                     1: NULL + print
+                14      LOAD_CONST                      1: 'Usage: pm.py <command>'
+                16      PRECALL                         1
+                20      CALL                            1
+                30      POP_TOP                         
+                32      LOAD_GLOBAL                     1: NULL + print
+                44      LOAD_CONST                      2: 'Commands:'
+                46      PRECALL                         1
+                50      CALL                            1
+                60      POP_TOP                         
+                62      LOAD_GLOBAL                     1: NULL + print
+                74      LOAD_CONST                      3: '  init   - Create a new master password'
+                76      PRECALL                         1
+                80      CALL                            1
+                90      POP_TOP                         
+                92      LOAD_GLOBAL                     1: NULL + print
+                104     LOAD_CONST                      4: '  add    - Add a new password'
+                106     PRECALL                         1
+                110     CALL                            1
+                120     POP_TOP                         
+                122     LOAD_GLOBAL                     1: NULL + print
+                134     LOAD_CONST                      5: '  gen    - Generate a new password'
+                136     PRECALL                         1
+                140     CALL                            1
+                150     POP_TOP                         
+                152     LOAD_GLOBAL                     1: NULL + print
+                164     LOAD_CONST                      6: '  read   - Retrieve a password'
+                166     PRECALL                         1
+                170     CALL                            1
+                180     POP_TOP                         
+                182     LOAD_GLOBAL                     1: NULL + print
+                194     LOAD_CONST                      7: '  help   - Print this help file'
+                196     PRECALL                         1
+                200     CALL                            1
+                210     POP_TOP                         
+                212     LOAD_CONST                      0: None
+                214     RETURN_VALUE                    
+        [Code]
+            File Name: pm.py
+            Object Name: main
+            Qualified Name: main
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 6
+            Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+            [Names]
+                'len'
+                'sys'
+                'argv'
+                'usage'
+                'exit'
+                'os'
+                'path'
+                'expanduser'
+                'isdir'
+                'mkdir'
+                'getpass'
+                'hashlib'
+                'md5'
+                'encode'
+                'hexdigest'
+                'print'
+                'input'
+                'isfile'
+                'save_password'
+                'load_password'
+                'int'
+                'generate_password'
+            [Locals+Names]
+                'command'
+                'homedir'
+                'passdir'
+                'password'
+                'passhash'
+                'dirname'
+                'service'
+                'filename'
+                'spassword'
+                'pass_len'
+            [Constants]
+                None
+                2
+                1
+                'init'
+                '~'
+                '/.passwords'
+                'Enter your master password: '
+                (
+                    'prompt'
+                )
+                'utf-8'
+                '/'
+                'directory already exists for that master password'
+                'add'
+                '/.passwords/'
+                'Unknown master password, please init first'
+                'Enter the service name:  '
+                'A password was already stored for that service.'
+                'Enter the password to store for '
+                ':  '
+                'read'
+                'Unknown master password'
+                'No password stored for that service using that master password'
+                'Password for '
+                ': '
+                'gen'
+                'Enter the password length (default 18):  '
+                '18'
+                'help'
+                'Unknown command'
+            [Disassembly]
+                0       RESUME                          0
+                2       LOAD_GLOBAL                     1: NULL + len
+                14      LOAD_GLOBAL                     2: sys
+                26      LOAD_ATTR                       2: argv
+                36      PRECALL                         1
+                40      CALL                            1
+                50      LOAD_CONST                      1: 2
+                52      COMPARE_OP                      3 (!=)
+                58      POP_JUMP_FORWARD_IF_FALSE       34 (to 128)
+                60      LOAD_GLOBAL                     7: NULL + usage
+                72      PRECALL                         0
+                76      CALL                            0
+                86      POP_TOP                         
+                88      LOAD_GLOBAL                     3: NULL + sys
+                100     LOAD_ATTR                       4: exit
+                110     LOAD_CONST                      2: 1
+                112     PRECALL                         1
+                116     CALL                            1
+                126     POP_TOP                         
+                128     LOAD_GLOBAL                     2: sys
+                140     LOAD_ATTR                       2: argv
+                150     LOAD_CONST                      2: 1
+                152     BINARY_SUBSCR                   
+                162     STORE_FAST                      0: command
+                164     LOAD_FAST                       0: command
+                166     LOAD_CONST                      3: 'init'
+                168     COMPARE_OP                      2 (==)
+                174     POP_JUMP_FORWARD_IF_FALSE       238 (to 652)
+                176     LOAD_GLOBAL                     10: os
+                188     LOAD_ATTR                       6: path
+                198     LOAD_METHOD                     7: expanduser
+                220     LOAD_CONST                      4: '~'
+                222     PRECALL                         1
+                226     CALL                            1
+                236     STORE_FAST                      1: homedir
+                238     LOAD_FAST                       1: homedir
+                240     LOAD_CONST                      5: '/.passwords'
+                242     BINARY_OP                       0 (+)
+                246     STORE_FAST                      2: passdir
+                248     LOAD_GLOBAL                     10: os
+                260     LOAD_ATTR                       6: path
+                270     LOAD_METHOD                     8: isdir
+                292     LOAD_FAST                       2: passdir
+                294     PRECALL                         1
+                298     CALL                            1
+                308     POP_JUMP_FORWARD_IF_TRUE        20 (to 350)
+                310     LOAD_GLOBAL                     11: NULL + os
+                322     LOAD_ATTR                       9: mkdir
+                332     LOAD_FAST                       2: passdir
+                334     PRECALL                         1
+                338     CALL                            1
+                348     POP_TOP                         
+                350     LOAD_GLOBAL                     21: NULL + getpass
+                362     LOAD_CONST                      6: 'Enter your master password: '
+                364     KW_NAMES                        7: ('prompt',)
+                366     PRECALL                         1
+                370     CALL                            1
+                380     STORE_FAST                      3: password
+                382     LOAD_GLOBAL                     23: NULL + hashlib
+                394     LOAD_ATTR                       12: md5
+                404     LOAD_FAST                       3: password
+                406     LOAD_METHOD                     13: encode
+                428     LOAD_CONST                      8: 'utf-8'
+                430     PRECALL                         1
+                434     CALL                            1
+                444     PRECALL                         1
+                448     CALL                            1
+                458     LOAD_METHOD                     14: hexdigest
+                480     PRECALL                         0
+                484     CALL                            0
+                494     STORE_FAST                      4: passhash
+                496     LOAD_FAST                       2: passdir
+                498     LOAD_CONST                      9: '/'
+                500     BINARY_OP                       0 (+)
+                504     LOAD_FAST                       4: passhash
+                506     BINARY_OP                       0 (+)
+                510     STORE_FAST                      5: dirname
+                512     LOAD_GLOBAL                     10: os
+                524     LOAD_ATTR                       6: path
+                534     LOAD_METHOD                     8: isdir
+                556     LOAD_FAST                       5: dirname
+                558     PRECALL                         1
+                562     CALL                            1
+                572     POP_JUMP_FORWARD_IF_TRUE        22 (to 618)
+                574     LOAD_GLOBAL                     11: NULL + os
+                586     LOAD_ATTR                       9: mkdir
+                596     LOAD_FAST                       5: dirname
+                598     PRECALL                         1
+                602     CALL                            1
+                612     POP_TOP                         
+                614     LOAD_CONST                      0: None
+                616     RETURN_VALUE                    
+                618     LOAD_GLOBAL                     31: NULL + print
+                630     LOAD_CONST                      10: 'directory already exists for that master password'
+                632     PRECALL                         1
+                636     CALL                            1
+                646     POP_TOP                         
+                648     LOAD_CONST                      0: None
+                650     RETURN_VALUE                    
+                652     LOAD_FAST                       0: command
+                654     LOAD_CONST                      11: 'add'
+                656     COMPARE_OP                      2 (==)
+                662     POP_JUMP_FORWARD_IF_FALSE       267 (to 1200)
+                666     LOAD_GLOBAL                     21: NULL + getpass
+                678     LOAD_CONST                      6: 'Enter your master password: '
+                680     KW_NAMES                        7: ('prompt',)
+                682     PRECALL                         1
+                686     CALL                            1
+                696     STORE_FAST                      3: password
+                698     LOAD_GLOBAL                     23: NULL + hashlib
+                710     LOAD_ATTR                       12: md5
+                720     LOAD_FAST                       3: password
+                722     LOAD_METHOD                     13: encode
+                744     LOAD_CONST                      8: 'utf-8'
+                746     PRECALL                         1
+                750     CALL                            1
+                760     PRECALL                         1
+                764     CALL                            1
+                774     LOAD_METHOD                     14: hexdigest
+                796     PRECALL                         0
+                800     CALL                            0
+                810     STORE_FAST                      4: passhash
+                812     LOAD_GLOBAL                     10: os
+                824     LOAD_ATTR                       6: path
+                834     LOAD_METHOD                     7: expanduser
+                856     LOAD_CONST                      4: '~'
+                858     PRECALL                         1
+                862     CALL                            1
+                872     LOAD_CONST                      12: '/.passwords/'
+                874     BINARY_OP                       0 (+)
+                878     LOAD_FAST                       4: passhash
+                880     BINARY_OP                       0 (+)
+                884     STORE_FAST                      5: dirname
+                886     LOAD_GLOBAL                     10: os
+                898     LOAD_ATTR                       6: path
+                908     LOAD_METHOD                     8: isdir
+                930     LOAD_FAST                       5: dirname
+                932     PRECALL                         1
+                936     CALL                            1
+                946     POP_JUMP_FORWARD_IF_TRUE        17 (to 982)
+                948     LOAD_GLOBAL                     31: NULL + print
+                960     LOAD_CONST                      13: 'Unknown master password, please init first'
+                962     PRECALL                         1
+                966     CALL                            1
+                976     POP_TOP                         
+                978     LOAD_CONST                      0: None
+                980     RETURN_VALUE                    
+                982     LOAD_GLOBAL                     33: NULL + input
+                994     LOAD_CONST                      14: 'Enter the service name:  '
+                996     PRECALL                         1
+                1000    CALL                            1
+                1010    STORE_FAST                      6: service
+                1012    LOAD_FAST                       5: dirname
+                1014    LOAD_CONST                      9: '/'
+                1016    BINARY_OP                       0 (+)
+                1020    LOAD_FAST                       6: service
+                1022    BINARY_OP                       0 (+)
+                1026    STORE_FAST                      7: filename
+                1028    LOAD_GLOBAL                     10: os
+                1040    LOAD_ATTR                       6: path
+                1050    LOAD_METHOD                     17: isfile
+                1072    LOAD_FAST                       7: filename
+                1074    PRECALL                         1
+                1078    CALL                            1
+                1088    POP_JUMP_FORWARD_IF_FALSE       17 (to 1124)
+                1090    LOAD_GLOBAL                     31: NULL + print
+                1102    LOAD_CONST                      15: 'A password was already stored for that service.'
+                1104    PRECALL                         1
+                1108    CALL                            1
+                1118    POP_TOP                         
+                1120    LOAD_CONST                      0: None
+                1122    RETURN_VALUE                    
+                1124    LOAD_GLOBAL                     33: NULL + input
+                1136    LOAD_CONST                      16: 'Enter the password to store for '
+                1138    LOAD_FAST                       6: service
+                1140    FORMAT_VALUE                    0 (FVC_NONE)
+                1142    LOAD_CONST                      17: ':  '
+                1144    BUILD_STRING                    3
+                1146    PRECALL                         1
+                1150    CALL                            1
+                1160    STORE_FAST                      8: spassword
+                1162    LOAD_GLOBAL                     37: NULL + save_password
+                1174    LOAD_FAST                       7: filename
+                1176    LOAD_FAST                       3: password
+                1178    LOAD_FAST                       8: spassword
+                1180    PRECALL                         3
+                1184    CALL                            3
+                1194    POP_TOP                         
+                1196    LOAD_CONST                      0: None
+                1198    RETURN_VALUE                    
+                1200    LOAD_FAST                       0: command
+                1202    LOAD_CONST                      18: 'read'
+                1204    COMPARE_OP                      2 (==)
+                1210    POP_JUMP_FORWARD_IF_FALSE       268 (to 1750)
+                1214    LOAD_GLOBAL                     21: NULL + getpass
+                1226    LOAD_CONST                      6: 'Enter your master password: '
+                1228    KW_NAMES                        7: ('prompt',)
+                1230    PRECALL                         1
+                1234    CALL                            1
+                1244    STORE_FAST                      3: password
+                1246    LOAD_GLOBAL                     23: NULL + hashlib
+                1258    LOAD_ATTR                       12: md5
+                1268    LOAD_FAST                       3: password
+                1270    LOAD_METHOD                     13: encode
+                1292    LOAD_CONST                      8: 'utf-8'
+                1294    PRECALL                         1
+                1298    CALL                            1
+                1308    PRECALL                         1
+                1312    CALL                            1
+                1322    LOAD_METHOD                     14: hexdigest
+                1344    PRECALL                         0
+                1348    CALL                            0
+                1358    STORE_FAST                      4: passhash
+                1360    LOAD_GLOBAL                     10: os
+                1372    LOAD_ATTR                       6: path
+                1382    LOAD_METHOD                     7: expanduser
+                1404    LOAD_CONST                      4: '~'
+                1406    PRECALL                         1
+                1410    CALL                            1
+                1420    LOAD_CONST                      12: '/.passwords/'
+                1422    BINARY_OP                       0 (+)
+                1426    LOAD_FAST                       4: passhash
+                1428    BINARY_OP                       0 (+)
+                1432    STORE_FAST                      5: dirname
+                1434    LOAD_GLOBAL                     10: os
+                1446    LOAD_ATTR                       6: path
+                1456    LOAD_METHOD                     8: isdir
+                1478    LOAD_FAST                       5: dirname
+                1480    PRECALL                         1
+                1484    CALL                            1
+                1494    POP_JUMP_FORWARD_IF_TRUE        17 (to 1530)
+                1496    LOAD_GLOBAL                     31: NULL + print
+                1508    LOAD_CONST                      19: 'Unknown master password'
+                1510    PRECALL                         1
+                1514    CALL                            1
+                1524    POP_TOP                         
+                1526    LOAD_CONST                      0: None
+                1528    RETURN_VALUE                    
+                1530    LOAD_GLOBAL                     33: NULL + input
+                1542    LOAD_CONST                      14: 'Enter the service name:  '
+                1544    PRECALL                         1
+                1548    CALL                            1
+                1558    STORE_FAST                      6: service
+                1560    LOAD_FAST                       5: dirname
+                1562    LOAD_CONST                      9: '/'
+                1564    BINARY_OP                       0 (+)
+                1568    LOAD_FAST                       6: service
+                1570    BINARY_OP                       0 (+)
+                1574    STORE_FAST                      7: filename
+                1576    LOAD_GLOBAL                     10: os
+                1588    LOAD_ATTR                       6: path
+                1598    LOAD_METHOD                     17: isfile
+                1620    LOAD_FAST                       7: filename
+                1622    PRECALL                         1
+                1626    CALL                            1
+                1636    POP_JUMP_FORWARD_IF_TRUE        17 (to 1672)
+                1638    LOAD_GLOBAL                     31: NULL + print
+                1650    LOAD_CONST                      20: 'No password stored for that service using that master password'
+                1652    PRECALL                         1
+                1656    CALL                            1
+                1666    POP_TOP                         
+                1668    LOAD_CONST                      0: None
+                1670    RETURN_VALUE                    
+                1672    LOAD_GLOBAL                     39: NULL + load_password
+                1684    LOAD_FAST                       7: filename
+                1686    LOAD_FAST                       3: password
+                1688    PRECALL                         2
+                1692    CALL                            2
+                1702    STORE_FAST                      8: spassword
+                1704    LOAD_GLOBAL                     31: NULL + print
+                1716    LOAD_CONST                      21: 'Password for '
+                1718    LOAD_FAST                       6: service
+                1720    FORMAT_VALUE                    0 (FVC_NONE)
+                1722    LOAD_CONST                      22: ': '
+                1724    LOAD_FAST                       8: spassword
+                1726    FORMAT_VALUE                    0 (FVC_NONE)
+                1728    BUILD_STRING                    4
+                1730    PRECALL                         1
+                1734    CALL                            1
+                1744    POP_TOP                         
+                1746    LOAD_CONST                      0: None
+                1748    RETURN_VALUE                    
+                1750    LOAD_FAST                       0: command
+                1752    LOAD_CONST                      23: 'gen'
+                1754    COMPARE_OP                      2 (==)
+                1760    POP_JUMP_FORWARD_IF_FALSE       293 (to 2350)
+                1764    LOAD_GLOBAL                     21: NULL + getpass
+                1776    LOAD_CONST                      6: 'Enter your master password: '
+                1778    KW_NAMES                        7: ('prompt',)
+                1780    PRECALL                         1
+                1784    CALL                            1
+                1794    STORE_FAST                      3: password
+                1796    LOAD_GLOBAL                     23: NULL + hashlib
+                1808    LOAD_ATTR                       12: md5
+                1818    LOAD_FAST                       3: password
+                1820    LOAD_METHOD                     13: encode
+                1842    LOAD_CONST                      8: 'utf-8'
+                1844    PRECALL                         1
+                1848    CALL                            1
+                1858    PRECALL                         1
+                1862    CALL                            1
+                1872    LOAD_METHOD                     14: hexdigest
+                1894    PRECALL                         0
+                1898    CALL                            0
+                1908    STORE_FAST                      4: passhash
+                1910    LOAD_GLOBAL                     10: os
+                1922    LOAD_ATTR                       6: path
+                1932    LOAD_METHOD                     7: expanduser
+                1954    LOAD_CONST                      4: '~'
+                1956    PRECALL                         1
+                1960    CALL                            1
+                1970    LOAD_CONST                      12: '/.passwords/'
+                1972    BINARY_OP                       0 (+)
+                1976    LOAD_FAST                       4: passhash
+                1978    BINARY_OP                       0 (+)
+                1982    STORE_FAST                      5: dirname
+                1984    LOAD_GLOBAL                     10: os
+                1996    LOAD_ATTR                       6: path
+                2006    LOAD_METHOD                     8: isdir
+                2028    LOAD_FAST                       5: dirname
+                2030    PRECALL                         1
+                2034    CALL                            1
+                2044    POP_JUMP_FORWARD_IF_TRUE        17 (to 2080)
+                2046    LOAD_GLOBAL                     31: NULL + print
+                2058    LOAD_CONST                      13: 'Unknown master password, please init first'
+                2060    PRECALL                         1
+                2064    CALL                            1
+                2074    POP_TOP                         
+                2076    LOAD_CONST                      0: None
+                2078    RETURN_VALUE                    
+                2080    LOAD_GLOBAL                     33: NULL + input
+                2092    LOAD_CONST                      14: 'Enter the service name:  '
+                2094    PRECALL                         1
+                2098    CALL                            1
+                2108    STORE_FAST                      6: service
+                2110    LOAD_FAST                       5: dirname
+                2112    LOAD_CONST                      9: '/'
+                2114    BINARY_OP                       0 (+)
+                2118    LOAD_FAST                       6: service
+                2120    BINARY_OP                       0 (+)
+                2124    STORE_FAST                      7: filename
+                2126    LOAD_GLOBAL                     10: os
+                2138    LOAD_ATTR                       6: path
+                2148    LOAD_METHOD                     17: isfile
+                2170    LOAD_FAST                       7: filename
+                2172    PRECALL                         1
+                2176    CALL                            1
+                2186    POP_JUMP_FORWARD_IF_FALSE       17 (to 2222)
+                2188    LOAD_GLOBAL                     31: NULL + print
+                2200    LOAD_CONST                      15: 'A password was already stored for that service.'
+                2202    PRECALL                         1
+                2206    CALL                            1
+                2216    POP_TOP                         
+                2218    LOAD_CONST                      0: None
+                2220    RETURN_VALUE                    
+                2222    LOAD_GLOBAL                     41: NULL + int
+                2234    LOAD_GLOBAL                     33: NULL + input
+                2246    LOAD_CONST                      24: 'Enter the password length (default 18):  '
+                2248    PRECALL                         1
+                2252    CALL                            1
+                2262    JUMP_IF_TRUE_OR_POP             1 (to 2)
+                2264    LOAD_CONST                      25: '18'
+                2266    PRECALL                         1
+                2270    CALL                            1
+                2280    STORE_FAST                      9: pass_len
+                2282    LOAD_GLOBAL                     43: NULL + generate_password
+                2294    LOAD_FAST                       9: pass_len
+                2296    PRECALL                         1
+                2300    CALL                            1
+                2310    STORE_FAST                      8: spassword
+                2312    LOAD_GLOBAL                     37: NULL + save_password
+                2324    LOAD_FAST                       7: filename
+                2326    LOAD_FAST                       3: password
+                2328    LOAD_FAST                       8: spassword
+                2330    PRECALL                         3
+                2334    CALL                            3
+                2344    POP_TOP                         
+                2346    LOAD_CONST                      0: None
+                2348    RETURN_VALUE                    
+                2350    LOAD_FAST                       0: command
+                2352    LOAD_CONST                      26: 'help'
+                2354    COMPARE_OP                      2 (==)
+                2360    POP_JUMP_FORWARD_IF_FALSE       16 (to 2394)
+                2362    LOAD_GLOBAL                     7: NULL + usage
+                2374    PRECALL                         0
+                2378    CALL                            0
+                2388    POP_TOP                         
+                2390    LOAD_CONST                      0: None
+                2392    RETURN_VALUE                    
+                2394    LOAD_GLOBAL                     31: NULL + print
+                2406    LOAD_CONST                      27: 'Unknown command'
+                2408    PRECALL                         1
+                2412    CALL                            1
+                2422    POP_TOP                         
+                2424    LOAD_CONST                      0: None
+                2426    RETURN_VALUE                    
+        '__main__'
+    [Disassembly]
+        0       RESUME                          0
+        2       LOAD_CONST                      0: 0
+        4       LOAD_CONST                      1: None
+        6       IMPORT_NAME                     0: os
+        8       STORE_NAME                      0: os
+        10      LOAD_CONST                      0: 0
+        12      LOAD_CONST                      1: None
+        14      IMPORT_NAME                     1: sys
+        16      STORE_NAME                      1: sys
+        18      LOAD_CONST                      0: 0
+        20      LOAD_CONST                      1: None
+        22      IMPORT_NAME                     2: base64
+        24      STORE_NAME                      2: base64
+        26      LOAD_CONST                      0: 0
+        28      LOAD_CONST                      2: ('getpass',)
+        30      IMPORT_NAME                     3: getpass
+        32      IMPORT_FROM                     3: getpass
+        34      STORE_NAME                      3: getpass
+        36      POP_TOP                         
+        38      LOAD_CONST                      0: 0
+        40      LOAD_CONST                      1: None
+        42      IMPORT_NAME                     4: hashlib
+        44      STORE_NAME                      4: hashlib
+        46      LOAD_CONST                      0: 0
+        48      LOAD_CONST                      1: None
+        50      IMPORT_NAME                     5: time
+        52      STORE_NAME                      5: time
+        54      LOAD_CONST                      0: 0
+        56      LOAD_CONST                      1: None
+        58      IMPORT_NAME                     6: string
+        60      STORE_NAME                      6: string
+        62      LOAD_CONST                      0: 0
+        64      LOAD_CONST                      1: None
+        66      IMPORT_NAME                     7: random
+        68      STORE_NAME                      7: random
+        70      LOAD_CONST                      0: 0
+        72      LOAD_CONST                      3: ('Cipher', 'algorithms', 'modes')
+        74      IMPORT_NAME                     8: cryptography.hazmat.primitives.ciphers
+        76      IMPORT_FROM                     9: Cipher
+        78      STORE_NAME                      9: Cipher
+        80      IMPORT_FROM                     10: algorithms
+        82      STORE_NAME                      10: algorithms
+        84      IMPORT_FROM                     11: modes
+        86      STORE_NAME                      11: modes
+        88      POP_TOP                         
+        90      LOAD_CONST                      0: 0
+        92      LOAD_CONST                      4: ('serialization',)
+        94      IMPORT_NAME                     12: cryptography.hazmat.primitives
+        96      IMPORT_FROM                     13: serialization
+        98      STORE_NAME                      13: serialization
+        100     POP_TOP                         
+        102     LOAD_CONST                      0: 0
+        104     LOAD_CONST                      5: ('PBKDF2HMAC',)
+        106     IMPORT_NAME                     14: cryptography.hazmat.primitives.kdf.pbkdf2
+        108     IMPORT_FROM                     15: PBKDF2HMAC
+        110     STORE_NAME                      15: PBKDF2HMAC
+        112     POP_TOP                         
+        114     LOAD_CONST                      0: 0
+        116     LOAD_CONST                      6: ('default_backend',)
+        118     IMPORT_NAME                     16: cryptography.hazmat.backends
+        120     IMPORT_FROM                     17: default_backend
+        122     STORE_NAME                      17: default_backend
+        124     POP_TOP                         
+        126     LOAD_CONST                      0: 0
+        128     LOAD_CONST                      7: ('hashes',)
+        130     IMPORT_NAME                     12: cryptography.hazmat.primitives
+        132     IMPORT_FROM                     18: hashes
+        134     STORE_NAME                      18: hashes
+        136     POP_TOP                         
+        138     LOAD_CONST                      8: b'\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        140     STORE_NAME                      19: SALT
+        142     LOAD_CONST                      9: 'password'
+        144     LOAD_NAME                       20: str
+        146     LOAD_CONST                      10: 'return'
+        148     LOAD_NAME                       21: bytes
+        150     BUILD_TUPLE                     4
+        152     LOAD_CONST                      11: <CODE> derive_key
+        154     MAKE_FUNCTION                   4
+        156     STORE_NAME                      22: derive_key
+        158     LOAD_CONST                      12: 'length'
+        160     LOAD_NAME                       23: int
+        162     LOAD_CONST                      10: 'return'
+        164     LOAD_NAME                       20: str
+        166     BUILD_TUPLE                     4
+        168     LOAD_CONST                      13: <CODE> generate_password
+        170     MAKE_FUNCTION                   4
+        172     STORE_NAME                      24: generate_password
+        174     LOAD_CONST                      14: 'spassword'
+        176     LOAD_NAME                       20: str
+        178     LOAD_CONST                      9: 'password'
+        180     LOAD_NAME                       20: str
+        182     LOAD_CONST                      10: 'return'
+        184     LOAD_NAME                       21: bytes
+        186     BUILD_TUPLE                     6
+        188     LOAD_CONST                      15: <CODE> encrypt_password
+        190     MAKE_FUNCTION                   4
+        192     STORE_NAME                      25: encrypt_password
+        194     LOAD_CONST                      16: 'encrypted_data'
+        196     LOAD_NAME                       21: bytes
+        198     LOAD_CONST                      9: 'password'
+        200     LOAD_NAME                       20: str
+        202     LOAD_CONST                      10: 'return'
+        204     LOAD_NAME                       20: str
+        206     BUILD_TUPLE                     6
+        208     LOAD_CONST                      17: <CODE> decrypt_password
+        210     MAKE_FUNCTION                   4
+        212     STORE_NAME                      26: decrypt_password
+        214     LOAD_CONST                      18: 'filename'
+        216     LOAD_NAME                       20: str
+        218     LOAD_CONST                      9: 'password'
+        220     LOAD_NAME                       20: str
+        222     LOAD_CONST                      14: 'spassword'
+        224     LOAD_NAME                       20: str
+        226     BUILD_TUPLE                     6
+        228     LOAD_CONST                      19: <CODE> save_password
+        230     MAKE_FUNCTION                   4
+        232     STORE_NAME                      27: save_password
+        234     LOAD_CONST                      18: 'filename'
+        236     LOAD_NAME                       20: str
+        238     LOAD_CONST                      9: 'password'
+        240     LOAD_NAME                       20: str
+        242     LOAD_CONST                      10: 'return'
+        244     LOAD_NAME                       20: str
+        246     BUILD_TUPLE                     6
+        248     LOAD_CONST                      20: <CODE> load_password
+        250     MAKE_FUNCTION                   4
+        252     STORE_NAME                      28: load_password
+        254     LOAD_CONST                      21: <CODE> usage
+        256     MAKE_FUNCTION                   0
+        258     STORE_NAME                      29: usage
+        260     LOAD_CONST                      22: <CODE> main
+        262     MAKE_FUNCTION                   0
+        264     STORE_NAME                      30: main
+        266     LOAD_NAME                       31: __name__
+        268     LOAD_CONST                      23: '__main__'
+        270     COMPARE_OP                      2 (==)
+        276     POP_JUMP_FORWARD_IF_FALSE       12 (to 302)
+        278     PUSH_NULL                       
+        280     LOAD_NAME                       30: main
+        282     PRECALL                         0
+        286     CALL                            0
+        296     POP_TOP                         
+        298     LOAD_CONST                      1: None
+        300     RETURN_VALUE                    
+        302     LOAD_CONST                      1: None
+        304     RETURN_VALUE                    

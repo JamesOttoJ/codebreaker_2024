@@ -1,0 +1,1095 @@
+pidgin_rsa_encryption.pyc (Python 3.11)
+[Code]
+    File Name: pidgin_rsa_encryption.py
+    Object Name: <module>
+    Qualified Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Stack Size: 2
+    Flags: 0x00000000
+    [Names]
+        'sys'
+        'math'
+        'base64'
+        'random'
+        'Crypto.PublicKey'
+        'RSA'
+        'rsa'
+        'core'
+        'load_public_key'
+        'load_private_key'
+        'encrypt_chunk'
+        'decrypt_chunk'
+        'encrypt_message'
+        'decrypt_message'
+        'send_message_to_pidgin'
+        'main'
+        '__name__'
+    [Locals+Names]
+    [Constants]
+        0
+        None
+        (
+            'RSA'
+        )
+        (
+            'core'
+        )
+        [Code]
+            File Name: pidgin_rsa_encryption.py
+            Object Name: load_public_key
+            Qualified Name: load_public_key
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 6
+            Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+            [Names]
+                'open'
+                'RSA'
+                'import_key'
+                'read'
+                'print'
+                'sys'
+                'exit'
+            [Locals+Names]
+                'pub_key'
+                'f'
+                'public_key'
+            [Constants]
+                None
+                'rb'
+                'public key not found'
+                1
+            [Disassembly]
+                0       RESUME                          0
+                2       NOP                             
+                4       LOAD_GLOBAL                     1: NULL + open
+                16      LOAD_FAST                       0: pub_key
+                18      LOAD_CONST                      1: 'rb'
+                20      PRECALL                         2
+                24      CALL                            2
+                34      BEFORE_WITH                     
+                36      STORE_FAST                      1: f
+                38      LOAD_GLOBAL                     3: NULL + RSA
+                50      LOAD_ATTR                       2: import_key
+                60      LOAD_FAST                       1: f
+                62      LOAD_METHOD                     3: read
+                84      PRECALL                         0
+                88      CALL                            0
+                98      PRECALL                         1
+                102     CALL                            1
+                112     STORE_FAST                      2: public_key
+                114     LOAD_CONST                      0: None
+                116     LOAD_CONST                      0: None
+                118     LOAD_CONST                      0: None
+                120     PRECALL                         2
+                124     CALL                            2
+                134     POP_TOP                         
+                136     JUMP_FORWARD                    11 (to 160)
+                138     PUSH_EXC_INFO                   
+                140     WITH_EXCEPT_START               
+                142     POP_JUMP_FORWARD_IF_TRUE        4 (to 152)
+                144     RERAISE                         2
+                146     COPY                            3
+                148     POP_EXCEPT                      
+                150     RERAISE                         1
+                152     POP_TOP                         
+                154     POP_EXCEPT                      
+                156     POP_TOP                         
+                158     POP_TOP                         
+                160     LOAD_FAST                       2: public_key
+                162     RETURN_VALUE                    
+                164     PUSH_EXC_INFO                   
+                166     POP_TOP                         
+                168     LOAD_GLOBAL                     9: NULL + print
+                180     LOAD_CONST                      2: 'public key not found'
+                182     PRECALL                         1
+                186     CALL                            1
+                196     POP_TOP                         
+                198     LOAD_GLOBAL                     11: NULL + sys
+                210     LOAD_ATTR                       6: exit
+                220     LOAD_CONST                      3: 1
+                222     PRECALL                         1
+                226     CALL                            1
+                236     POP_TOP                         
+                238     POP_EXCEPT                      
+                240     LOAD_CONST                      0: None
+                242     RETURN_VALUE                    
+                244     COPY                            3
+                246     POP_EXCEPT                      
+                248     RERAISE                         1
+        [Code]
+            File Name: pidgin_rsa_encryption.py
+            Object Name: load_private_key
+            Qualified Name: load_private_key
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 6
+            Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+            [Names]
+                'open'
+                'RSA'
+                'import_key'
+                'read'
+                'print'
+                'sys'
+                'exit'
+            [Locals+Names]
+                'password'
+                'priv_key'
+                'f'
+                'private_key'
+            [Constants]
+                None
+                'rb'
+                'Incorrect password'
+                1
+                'private key not found or password incorrect'
+            [Disassembly]
+                0       RESUME                          0
+                2       NOP                             
+                4       LOAD_GLOBAL                     1: NULL + open
+                16      LOAD_FAST                       1: priv_key
+                18      LOAD_CONST                      1: 'rb'
+                20      PRECALL                         2
+                24      CALL                            2
+                34      BEFORE_WITH                     
+                36      STORE_FAST                      2: f
+                38      NOP                             
+                40      LOAD_GLOBAL                     3: NULL + RSA
+                52      LOAD_ATTR                       2: import_key
+                62      LOAD_FAST                       2: f
+                64      LOAD_METHOD                     3: read
+                86      PRECALL                         0
+                90      CALL                            0
+                100     LOAD_FAST                       0: password
+                102     PRECALL                         2
+                106     CALL                            2
+                116     STORE_FAST                      3: private_key
+                118     JUMP_FORWARD                    42 (to 204)
+                120     PUSH_EXC_INFO                   
+                122     POP_TOP                         
+                124     LOAD_GLOBAL                     9: NULL + print
+                136     LOAD_CONST                      2: 'Incorrect password'
+                138     PRECALL                         1
+                142     CALL                            1
+                152     POP_TOP                         
+                154     LOAD_GLOBAL                     11: NULL + sys
+                166     LOAD_ATTR                       6: exit
+                176     LOAD_CONST                      3: 1
+                178     PRECALL                         1
+                182     CALL                            1
+                192     POP_TOP                         
+                194     POP_EXCEPT                      
+                196     JUMP_FORWARD                    3 (to 204)
+                198     COPY                            3
+                200     POP_EXCEPT                      
+                202     RERAISE                         1
+                204     LOAD_CONST                      0: None
+                206     LOAD_CONST                      0: None
+                208     LOAD_CONST                      0: None
+                210     PRECALL                         2
+                214     CALL                            2
+                224     POP_TOP                         
+                226     JUMP_FORWARD                    11 (to 250)
+                228     PUSH_EXC_INFO                   
+                230     WITH_EXCEPT_START               
+                232     POP_JUMP_FORWARD_IF_TRUE        4 (to 242)
+                234     RERAISE                         2
+                236     COPY                            3
+                238     POP_EXCEPT                      
+                240     RERAISE                         1
+                242     POP_TOP                         
+                244     POP_EXCEPT                      
+                246     POP_TOP                         
+                248     POP_TOP                         
+                250     LOAD_FAST                       3: private_key
+                252     RETURN_VALUE                    
+                254     PUSH_EXC_INFO                   
+                256     POP_TOP                         
+                258     LOAD_GLOBAL                     9: NULL + print
+                270     LOAD_CONST                      4: 'private key not found or password incorrect'
+                272     PRECALL                         1
+                276     CALL                            1
+                286     POP_TOP                         
+                288     LOAD_GLOBAL                     11: NULL + sys
+                300     LOAD_ATTR                       6: exit
+                310     LOAD_CONST                      3: 1
+                312     PRECALL                         1
+                316     CALL                            1
+                326     POP_TOP                         
+                328     POP_EXCEPT                      
+                330     LOAD_CONST                      0: None
+                332     RETURN_VALUE                    
+                334     COPY                            3
+                336     POP_EXCEPT                      
+                338     RERAISE                         1
+        [Code]
+            File Name: pidgin_rsa_encryption.py
+            Object Name: encrypt_chunk
+            Qualified Name: encrypt_chunk
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 7
+            Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+            [Names]
+                'math'
+                'ceil'
+                'n'
+                'bit_length'
+                'len'
+                'random'
+                'seed'
+                'bytes'
+                'range'
+                'encode'
+                'int'
+                'from_bytes'
+                'core'
+                'encrypt_int'
+                'e'
+                'to_bytes'
+                'base64'
+                'b64encode'
+                'decode'
+            [Locals+Names]
+                'chunk'
+                'public_key'
+                'k'
+                'pad_len'
+                'padding'
+                'padded_chunk'
+                'input_nr'
+                'crypted_nr'
+                'encrypted_chunk'
+            [Constants]
+                None
+                8
+                'None'
+                (
+                    'a'
+                )
+                [Code]
+                    File Name: pidgin_rsa_encryption.py
+                    Object Name: <listcomp>
+                    Qualified Name: encrypt_chunk.<locals>.<listcomp>
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 6
+                    Flags: 0x00000013 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED)
+                    [Names]
+                        'random'
+                        'randrange'
+                    [Locals+Names]
+                        '.0'
+                        'i'
+                    [Constants]
+                        1
+                        255
+                    [Disassembly]
+                        0       RESUME                          0
+                        2       BUILD_LIST                      0
+                        4       LOAD_FAST                       0: .0
+                        6       FOR_ITER                        23 (to 54)
+                        8       STORE_FAST                      1: i
+                        10      LOAD_GLOBAL                     1: NULL + random
+                        22      LOAD_ATTR                       1: randrange
+                        32      LOAD_CONST                      0: 1
+                        34      LOAD_CONST                      1: 255
+                        36      PRECALL                         2
+                        40      CALL                            2
+                        50      LIST_APPEND                     2
+                        52      JUMP_BACKWARD                   24 (to 6)
+                        54      RETURN_VALUE                    
+                3
+                b'\x00\x02'
+                b'\x00'
+                'big'
+                (
+                    'byteorder'
+                )
+            [Disassembly]
+                0       RESUME                          0
+                2       LOAD_GLOBAL                     1: NULL + math
+                14      LOAD_ATTR                       1: ceil
+                24      LOAD_FAST                       1: public_key
+                26      LOAD_ATTR                       2: n
+                36      LOAD_METHOD                     3: bit_length
+                58      PRECALL                         0
+                62      CALL                            0
+                72      LOAD_CONST                      1: 8
+                74      BINARY_OP                       11 (/)
+                78      PRECALL                         1
+                82      CALL                            1
+                92      STORE_FAST                      2: k
+                94      LOAD_FAST                       2: k
+                96      LOAD_GLOBAL                     9: NULL + len
+                108     LOAD_FAST                       0: chunk
+                110     PRECALL                         1
+                114     CALL                            1
+                124     BINARY_OP                       10 (-)
+                128     STORE_FAST                      3: pad_len
+                130     LOAD_GLOBAL                     11: NULL + random
+                142     LOAD_ATTR                       6: seed
+                152     LOAD_CONST                      2: 'None'
+                154     KW_NAMES                        3: ('a',)
+                156     PRECALL                         1
+                160     CALL                            1
+                170     POP_TOP                         
+                172     LOAD_GLOBAL                     15: NULL + bytes
+                184     LOAD_CONST                      4: <CODE> <listcomp>
+                186     MAKE_FUNCTION                   0
+                188     LOAD_GLOBAL                     17: NULL + range
+                200     LOAD_FAST                       3: pad_len
+                202     LOAD_CONST                      5: 3
+                204     BINARY_OP                       10 (-)
+                208     PRECALL                         1
+                212     CALL                            1
+                222     GET_ITER                        
+                224     PRECALL                         0
+                228     CALL                            0
+                238     PRECALL                         1
+                242     CALL                            1
+                252     STORE_FAST                      4: padding
+                254     LOAD_CONST                      6: b'\x00\x02'
+                256     LOAD_FAST                       4: padding
+                258     BINARY_OP                       0 (+)
+                262     LOAD_CONST                      7: b'\x00'
+                264     BINARY_OP                       0 (+)
+                268     STORE_FAST                      4: padding
+                270     LOAD_FAST                       4: padding
+                272     LOAD_FAST                       0: chunk
+                274     LOAD_METHOD                     9: encode
+                296     PRECALL                         0
+                300     CALL                            0
+                310     BINARY_OP                       0 (+)
+                314     STORE_FAST                      5: padded_chunk
+                316     LOAD_GLOBAL                     20: int
+                328     LOAD_METHOD                     11: from_bytes
+                350     LOAD_FAST                       5: padded_chunk
+                352     LOAD_CONST                      8: 'big'
+                354     KW_NAMES                        9: ('byteorder',)
+                356     PRECALL                         2
+                360     CALL                            2
+                370     STORE_FAST                      6: input_nr
+                372     LOAD_GLOBAL                     25: NULL + core
+                384     LOAD_ATTR                       13: encrypt_int
+                394     LOAD_FAST                       6: input_nr
+                396     LOAD_FAST                       1: public_key
+                398     LOAD_ATTR                       14: e
+                408     LOAD_FAST                       1: public_key
+                410     LOAD_ATTR                       2: n
+                420     PRECALL                         3
+                424     CALL                            3
+                434     STORE_FAST                      7: crypted_nr
+                436     LOAD_FAST                       7: crypted_nr
+                438     LOAD_METHOD                     15: to_bytes
+                460     LOAD_FAST                       2: k
+                462     LOAD_CONST                      8: 'big'
+                464     KW_NAMES                        9: ('byteorder',)
+                466     PRECALL                         2
+                470     CALL                            2
+                480     STORE_FAST                      8: encrypted_chunk
+                482     LOAD_GLOBAL                     33: NULL + base64
+                494     LOAD_ATTR                       17: b64encode
+                504     LOAD_FAST                       8: encrypted_chunk
+                506     PRECALL                         1
+                510     CALL                            1
+                520     LOAD_METHOD                     18: decode
+                542     PRECALL                         0
+                546     CALL                            0
+                556     RETURN_VALUE                    
+        [Code]
+            File Name: pidgin_rsa_encryption.py
+            Object Name: decrypt_chunk
+            Qualified Name: decrypt_chunk
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 5
+            Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+            [Names]
+                'base64'
+                'b64decode'
+                'print'
+                'sys'
+                'exit'
+                'int'
+                'from_bytes'
+                'core'
+                'decrypt_int'
+                'd'
+                'n'
+                'to_bytes'
+                'find'
+                'decode'
+            [Locals+Names]
+                'encrypted_chunk'
+                'private_key'
+                'decoded_chunk'
+                'input_nr'
+                'decrypted_nr'
+                'decrypted_chunk'
+                'unpadded_chunk'
+                'end_of_pad'
+            [Constants]
+                None
+                'Invalid message'
+                1
+                'big'
+                (
+                    'byteorder'
+                )
+                256
+                2
+                b'\x00'
+            [Disassembly]
+                0       RESUME                          0
+                2       NOP                             
+                4       LOAD_GLOBAL                     1: NULL + base64
+                16      LOAD_ATTR                       1: b64decode
+                26      LOAD_FAST                       0: encrypted_chunk
+                28      PRECALL                         1
+                32      CALL                            1
+                42      STORE_FAST                      2: decoded_chunk
+                44      JUMP_FORWARD                    42 (to 130)
+                46      PUSH_EXC_INFO                   
+                48      POP_TOP                         
+                50      LOAD_GLOBAL                     5: NULL + print
+                62      LOAD_CONST                      1: 'Invalid message'
+                64      PRECALL                         1
+                68      CALL                            1
+                78      POP_TOP                         
+                80      LOAD_GLOBAL                     7: NULL + sys
+                92      LOAD_ATTR                       4: exit
+                102     LOAD_CONST                      2: 1
+                104     PRECALL                         1
+                108     CALL                            1
+                118     POP_TOP                         
+                120     POP_EXCEPT                      
+                122     JUMP_FORWARD                    3 (to 130)
+                124     COPY                            3
+                126     POP_EXCEPT                      
+                128     RERAISE                         1
+                130     LOAD_GLOBAL                     10: int
+                142     LOAD_METHOD                     6: from_bytes
+                164     LOAD_FAST                       2: decoded_chunk
+                166     LOAD_CONST                      3: 'big'
+                168     KW_NAMES                        4: ('byteorder',)
+                170     PRECALL                         2
+                174     CALL                            2
+                184     STORE_FAST                      3: input_nr
+                186     LOAD_GLOBAL                     15: NULL + core
+                198     LOAD_ATTR                       8: decrypt_int
+                208     LOAD_FAST                       3: input_nr
+                210     LOAD_FAST                       1: private_key
+                212     LOAD_ATTR                       9: d
+                222     LOAD_FAST                       1: private_key
+                224     LOAD_ATTR                       10: n
+                234     PRECALL                         3
+                238     CALL                            3
+                248     STORE_FAST                      4: decrypted_nr
+                250     LOAD_FAST                       4: decrypted_nr
+                252     LOAD_METHOD                     11: to_bytes
+                274     LOAD_CONST                      5: 256
+                276     LOAD_CONST                      3: 'big'
+                278     KW_NAMES                        4: ('byteorder',)
+                280     PRECALL                         2
+                284     CALL                            2
+                294     STORE_FAST                      5: decrypted_chunk
+                296     LOAD_FAST                       5: decrypted_chunk
+                298     LOAD_CONST                      6: 2
+                300     LOAD_CONST                      0: None
+                302     BUILD_SLICE                     2
+                304     BINARY_SUBSCR                   
+                314     STORE_FAST                      6: unpadded_chunk
+                316     LOAD_FAST                       6: unpadded_chunk
+                318     LOAD_METHOD                     12: find
+                340     LOAD_CONST                      7: b'\x00'
+                342     PRECALL                         1
+                346     CALL                            1
+                356     STORE_FAST                      7: end_of_pad
+                358     LOAD_FAST                       6: unpadded_chunk
+                360     LOAD_FAST                       7: end_of_pad
+                362     LOAD_CONST                      2: 1
+                364     BINARY_OP                       0 (+)
+                368     LOAD_CONST                      0: None
+                370     BUILD_SLICE                     2
+                372     BINARY_SUBSCR                   
+                382     STORE_FAST                      6: unpadded_chunk
+                384     LOAD_FAST                       6: unpadded_chunk
+                386     LOAD_METHOD                     13: decode
+                408     PRECALL                         0
+                412     CALL                            0
+                422     RETURN_VALUE                    
+        [Code]
+            File Name: pidgin_rsa_encryption.py
+            Object Name: encrypt_message
+            Qualified Name: encrypt_message
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 6
+            Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+            [Names]
+                'range'
+                'len'
+                'encrypt_chunk'
+                'append'
+                'join'
+            [Locals+Names]
+                'message'
+                'public_key'
+                'chunk_size'
+                'encrypted_chunks'
+                'i'
+                'chunk'
+                'encrypted_chunk'
+            [Constants]
+                None
+                245
+                0
+                ' '
+            [Disassembly]
+                0       RESUME                          0
+                2       LOAD_CONST                      1: 245
+                4       STORE_FAST                      2: chunk_size
+                6       BUILD_LIST                      0
+                8       STORE_FAST                      3: encrypted_chunks
+                10      LOAD_GLOBAL                     1: NULL + range
+                22      LOAD_CONST                      2: 0
+                24      LOAD_GLOBAL                     3: NULL + len
+                36      LOAD_FAST                       0: message
+                38      PRECALL                         1
+                42      CALL                            1
+                52      LOAD_FAST                       2: chunk_size
+                54      PRECALL                         3
+                58      CALL                            3
+                68      GET_ITER                        
+                70      FOR_ITER                        52 (to 176)
+                72      STORE_FAST                      4: i
+                74      LOAD_FAST                       0: message
+                76      LOAD_FAST                       4: i
+                78      LOAD_FAST                       4: i
+                80      LOAD_FAST                       2: chunk_size
+                82      BINARY_OP                       0 (+)
+                86      BUILD_SLICE                     2
+                88      BINARY_SUBSCR                   
+                98      STORE_FAST                      5: chunk
+                100     LOAD_GLOBAL                     5: NULL + encrypt_chunk
+                112     LOAD_FAST                       5: chunk
+                114     LOAD_FAST                       1: public_key
+                116     PRECALL                         2
+                120     CALL                            2
+                130     STORE_FAST                      6: encrypted_chunk
+                132     LOAD_FAST                       3: encrypted_chunks
+                134     LOAD_METHOD                     3: append
+                156     LOAD_FAST                       6: encrypted_chunk
+                158     PRECALL                         1
+                162     CALL                            1
+                172     POP_TOP                         
+                174     JUMP_BACKWARD                   53 (to 70)
+                176     LOAD_CONST                      3: ' '
+                178     LOAD_METHOD                     4: join
+                200     LOAD_FAST                       3: encrypted_chunks
+                202     PRECALL                         1
+                206     CALL                            1
+                216     RETURN_VALUE                    
+        [Code]
+            File Name: pidgin_rsa_encryption.py
+            Object Name: decrypt_message
+            Qualified Name: decrypt_message
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 4
+            Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+            [Names]
+                'split'
+                'join'
+            [Locals+Names]
+                'encrypted_message'
+                'private_key'
+                'encrypted_chunks'
+                'decrypted_message'
+            [Constants]
+                None
+                ' '
+                ''
+                [Code]
+                    File Name: pidgin_rsa_encryption.py
+                    Object Name: <genexpr>
+                    Qualified Name: decrypt_message.<locals>.<genexpr>
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 5
+                    Flags: 0x00000033 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED | CO_GENERATOR)
+                    [Names]
+                        'decrypt_chunk'
+                    [Locals+Names]
+                        '.0'
+                        'chunk'
+                        'private_key'
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       COPY_FREE_VARS                  1
+                        2       RETURN_GENERATOR                
+                        4       POP_TOP                         
+                        6       RESUME                          0
+                        8       LOAD_FAST                       0: .0
+                        10      FOR_ITER                        20 (to 52)
+                        12      STORE_FAST                      1: chunk
+                        14      LOAD_GLOBAL                     1: NULL + decrypt_chunk
+                        26      LOAD_FAST                       1: chunk
+                        28      LOAD_DEREF                      2: private_key
+                        30      PRECALL                         2
+                        34      CALL                            2
+                        44      YIELD_VALUE                     
+                        46      RESUME                          1
+                        48      POP_TOP                         
+                        50      JUMP_BACKWARD                   21 (to 10)
+                        52      LOAD_CONST                      0: None
+                        54      RETURN_VALUE                    
+            [Disassembly]
+                0       MAKE_CELL                       1: private_key
+                2       RESUME                          0
+                4       LOAD_FAST                       0: encrypted_message
+                6       LOAD_METHOD                     0: split
+                28      LOAD_CONST                      1: ' '
+                30      PRECALL                         1
+                34      CALL                            1
+                44      STORE_FAST                      2: encrypted_chunks
+                46      LOAD_CONST                      2: ''
+                48      LOAD_METHOD                     1: join
+                70      LOAD_CLOSURE                    1: private_key
+                72      BUILD_TUPLE                     1
+                74      LOAD_CONST                      3: <CODE> <genexpr>
+                76      MAKE_FUNCTION                   8
+                78      LOAD_FAST                       2: encrypted_chunks
+                80      GET_ITER                        
+                82      PRECALL                         0
+                86      CALL                            0
+                96      PRECALL                         1
+                100     CALL                            1
+                110     STORE_FAST                      3: decrypted_message
+                112     LOAD_FAST                       3: decrypted_message
+                114     RETURN_VALUE                    
+        [Code]
+            File Name: pidgin_rsa_encryption.py
+            Object Name: send_message_to_pidgin
+            Qualified Name: send_message_to_pidgin
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 5
+            Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+            [Names]
+                'dbus'
+                'SessionBus'
+                'get_object'
+                'print'
+                'sys'
+                'exit'
+                'Interface'
+                'PurpleAccountsGetAllActive'
+                'PurpleConversationNew'
+                'PurpleConvIm'
+                'PurpleConvImSend'
+            [Locals+Names]
+                'message'
+                'recipient'
+                'dbus'
+                'bus'
+                'purple'
+                'iface'
+                'accounts'
+                'account'
+                'conv'
+                'im'
+            [Constants]
+                None
+                0
+                'im.pidgin.purple.PurpleService'
+                '/im/pidgin/purple/PurpleObject'
+                'Could not send message to pidgin - not connected'
+                1
+                'im.pidgin.purple.PurpleInterface'
+                'No active Pidgin accounts found.'
+            [Disassembly]
+                0       RESUME                          0
+                2       LOAD_CONST                      1: 0
+                4       LOAD_CONST                      0: None
+                6       IMPORT_NAME                     0: dbus
+                8       STORE_FAST                      2: dbus
+                10      LOAD_FAST                       2: dbus
+                12      LOAD_METHOD                     1: SessionBus
+                34      PRECALL                         0
+                38      CALL                            0
+                48      STORE_FAST                      3: bus
+                50      NOP                             
+                52      LOAD_FAST                       3: bus
+                54      LOAD_METHOD                     2: get_object
+                76      LOAD_CONST                      2: 'im.pidgin.purple.PurpleService'
+                78      LOAD_CONST                      3: '/im/pidgin/purple/PurpleObject'
+                80      PRECALL                         2
+                84      CALL                            2
+                94      STORE_FAST                      4: purple
+                96      JUMP_FORWARD                    42 (to 182)
+                98      PUSH_EXC_INFO                   
+                100     POP_TOP                         
+                102     LOAD_GLOBAL                     7: NULL + print
+                114     LOAD_CONST                      4: 'Could not send message to pidgin - not connected'
+                116     PRECALL                         1
+                120     CALL                            1
+                130     POP_TOP                         
+                132     LOAD_GLOBAL                     9: NULL + sys
+                144     LOAD_ATTR                       5: exit
+                154     LOAD_CONST                      5: 1
+                156     PRECALL                         1
+                160     CALL                            1
+                170     POP_TOP                         
+                172     POP_EXCEPT                      
+                174     JUMP_FORWARD                    3 (to 182)
+                176     COPY                            3
+                178     POP_EXCEPT                      
+                180     RERAISE                         1
+                182     LOAD_FAST                       2: dbus
+                184     LOAD_METHOD                     6: Interface
+                206     LOAD_FAST                       4: purple
+                208     LOAD_CONST                      6: 'im.pidgin.purple.PurpleInterface'
+                210     PRECALL                         2
+                214     CALL                            2
+                224     STORE_FAST                      5: iface
+                226     LOAD_FAST                       5: iface
+                228     LOAD_METHOD                     7: PurpleAccountsGetAllActive
+                250     PRECALL                         0
+                254     CALL                            0
+                264     STORE_FAST                      6: accounts
+                266     LOAD_FAST                       6: accounts
+                268     POP_JUMP_FORWARD_IF_TRUE        17 (to 304)
+                270     LOAD_GLOBAL                     7: NULL + print
+                282     LOAD_CONST                      7: 'No active Pidgin accounts found.'
+                284     PRECALL                         1
+                288     CALL                            1
+                298     POP_TOP                         
+                300     LOAD_CONST                      0: None
+                302     RETURN_VALUE                    
+                304     LOAD_FAST                       6: accounts
+                306     LOAD_CONST                      1: 0
+                308     BINARY_SUBSCR                   
+                318     STORE_FAST                      7: account
+                320     LOAD_FAST                       5: iface
+                322     LOAD_METHOD                     8: PurpleConversationNew
+                344     LOAD_CONST                      5: 1
+                346     LOAD_FAST                       7: account
+                348     LOAD_FAST                       1: recipient
+                350     PRECALL                         3
+                354     CALL                            3
+                364     STORE_FAST                      8: conv
+                366     LOAD_FAST                       5: iface
+                368     LOAD_METHOD                     9: PurpleConvIm
+                390     LOAD_FAST                       8: conv
+                392     PRECALL                         1
+                396     CALL                            1
+                406     STORE_FAST                      9: im
+                408     LOAD_FAST                       5: iface
+                410     LOAD_METHOD                     10: PurpleConvImSend
+                432     LOAD_FAST                       9: im
+                434     LOAD_FAST                       0: message
+                436     PRECALL                         2
+                440     CALL                            2
+                450     POP_TOP                         
+                452     LOAD_CONST                      0: None
+                454     RETURN_VALUE                    
+        [Code]
+            File Name: pidgin_rsa_encryption.py
+            Object Name: main
+            Qualified Name: main
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 4
+            Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+            [Names]
+                'len'
+                'sys'
+                'argv'
+                'print'
+                'exit'
+                'load_public_key'
+                'encrypt_message'
+                'send_message_to_pidgin'
+                'load_private_key'
+                'decrypt_message'
+            [Locals+Names]
+                'mode'
+                'recipient'
+                'message'
+                'pub_key'
+                'public_key'
+                'encrypted_message'
+                'password'
+                'priv_key'
+                'private_key'
+                'decrypted_message'
+            [Constants]
+                None
+                2
+                'Usage: python pidgin_rsa_encryption.py <mode> [<recipient> <message> <public_key> | <encrypted_message> <password>]'
+                'Modes:'
+                '  send <recipient> <message> <public_key> - Send an encrypted message'
+                '  receive <encrypted_message> <password> <private_key> - Decrypt the given encrypted message'
+                1
+                'send'
+                5
+                'Usage: python pidgin_rsa_encryption.py send <recipient> <message> <public_key>'
+                3
+                4
+                'Encrypted message sent to Pidgin.'
+                'receive'
+                'Usage: python pidgin_rsa_encryption.py receive <encrypted_message> <password> <private_key>'
+                'Decrypted message:'
+                "Invalid mode. Use 'send' or 'receive'."
+            [Disassembly]
+                0       RESUME                          0
+                2       LOAD_GLOBAL                     1: NULL + len
+                14      LOAD_GLOBAL                     2: sys
+                26      LOAD_ATTR                       2: argv
+                36      PRECALL                         1
+                40      CALL                            1
+                50      LOAD_CONST                      1: 2
+                52      COMPARE_OP                      0 (<)
+                58      POP_JUMP_FORWARD_IF_FALSE       80 (to 220)
+                60      LOAD_GLOBAL                     7: NULL + print
+                72      LOAD_CONST                      2: 'Usage: python pidgin_rsa_encryption.py <mode> [<recipient> <message> <public_key> | <encrypted_message> <password>]'
+                74      PRECALL                         1
+                78      CALL                            1
+                88      POP_TOP                         
+                90      LOAD_GLOBAL                     7: NULL + print
+                102     LOAD_CONST                      3: 'Modes:'
+                104     PRECALL                         1
+                108     CALL                            1
+                118     POP_TOP                         
+                120     LOAD_GLOBAL                     7: NULL + print
+                132     LOAD_CONST                      4: '  send <recipient> <message> <public_key> - Send an encrypted message'
+                134     PRECALL                         1
+                138     CALL                            1
+                148     POP_TOP                         
+                150     LOAD_GLOBAL                     7: NULL + print
+                162     LOAD_CONST                      5: '  receive <encrypted_message> <password> <private_key> - Decrypt the given encrypted message'
+                164     PRECALL                         1
+                168     CALL                            1
+                178     POP_TOP                         
+                180     LOAD_GLOBAL                     3: NULL + sys
+                192     LOAD_ATTR                       4: exit
+                202     LOAD_CONST                      6: 1
+                204     PRECALL                         1
+                208     CALL                            1
+                218     POP_TOP                         
+                220     LOAD_GLOBAL                     2: sys
+                232     LOAD_ATTR                       2: argv
+                242     LOAD_CONST                      6: 1
+                244     BINARY_SUBSCR                   
+                254     STORE_FAST                      0: mode
+                256     LOAD_FAST                       0: mode
+                258     LOAD_CONST                      7: 'send'
+                260     COMPARE_OP                      2 (==)
+                266     POP_JUMP_FORWARD_IF_FALSE       182 (to 632)
+                268     LOAD_GLOBAL                     1: NULL + len
+                280     LOAD_GLOBAL                     2: sys
+                292     LOAD_ATTR                       2: argv
+                302     PRECALL                         1
+                306     CALL                            1
+                316     LOAD_CONST                      8: 5
+                318     COMPARE_OP                      3 (!=)
+                324     POP_JUMP_FORWARD_IF_FALSE       35 (to 396)
+                326     LOAD_GLOBAL                     7: NULL + print
+                338     LOAD_CONST                      9: 'Usage: python pidgin_rsa_encryption.py send <recipient> <message> <public_key>'
+                340     PRECALL                         1
+                344     CALL                            1
+                354     POP_TOP                         
+                356     LOAD_GLOBAL                     3: NULL + sys
+                368     LOAD_ATTR                       4: exit
+                378     LOAD_CONST                      6: 1
+                380     PRECALL                         1
+                384     CALL                            1
+                394     POP_TOP                         
+                396     LOAD_GLOBAL                     2: sys
+                408     LOAD_ATTR                       2: argv
+                418     LOAD_CONST                      1: 2
+                420     BINARY_SUBSCR                   
+                430     STORE_FAST                      1: recipient
+                432     LOAD_GLOBAL                     2: sys
+                444     LOAD_ATTR                       2: argv
+                454     LOAD_CONST                      10: 3
+                456     BINARY_SUBSCR                   
+                466     STORE_FAST                      2: message
+                468     LOAD_GLOBAL                     2: sys
+                480     LOAD_ATTR                       2: argv
+                490     LOAD_CONST                      11: 4
+                492     BINARY_SUBSCR                   
+                502     STORE_FAST                      3: pub_key
+                504     LOAD_GLOBAL                     11: NULL + load_public_key
+                516     LOAD_FAST                       3: pub_key
+                518     PRECALL                         1
+                522     CALL                            1
+                532     STORE_FAST                      4: public_key
+                534     LOAD_GLOBAL                     13: NULL + encrypt_message
+                546     LOAD_FAST                       2: message
+                548     LOAD_FAST                       4: public_key
+                550     PRECALL                         2
+                554     CALL                            2
+                564     STORE_FAST                      5: encrypted_message
+                566     LOAD_GLOBAL                     15: NULL + send_message_to_pidgin
+                578     LOAD_FAST                       5: encrypted_message
+                580     LOAD_FAST                       1: recipient
+                582     PRECALL                         2
+                586     CALL                            2
+                596     POP_TOP                         
+                598     LOAD_GLOBAL                     7: NULL + print
+                610     LOAD_CONST                      12: 'Encrypted message sent to Pidgin.'
+                612     PRECALL                         1
+                616     CALL                            1
+                626     POP_TOP                         
+                628     LOAD_CONST                      0: None
+                630     RETURN_VALUE                    
+                632     LOAD_FAST                       0: mode
+                634     LOAD_CONST                      13: 'receive'
+                636     COMPARE_OP                      2 (==)
+                642     POP_JUMP_FORWARD_IF_FALSE       168 (to 980)
+                644     LOAD_GLOBAL                     1: NULL + len
+                656     LOAD_GLOBAL                     2: sys
+                668     LOAD_ATTR                       2: argv
+                678     PRECALL                         1
+                682     CALL                            1
+                692     LOAD_CONST                      8: 5
+                694     COMPARE_OP                      3 (!=)
+                700     POP_JUMP_FORWARD_IF_FALSE       35 (to 772)
+                702     LOAD_GLOBAL                     7: NULL + print
+                714     LOAD_CONST                      14: 'Usage: python pidgin_rsa_encryption.py receive <encrypted_message> <password> <private_key>'
+                716     PRECALL                         1
+                720     CALL                            1
+                730     POP_TOP                         
+                732     LOAD_GLOBAL                     3: NULL + sys
+                744     LOAD_ATTR                       4: exit
+                754     LOAD_CONST                      6: 1
+                756     PRECALL                         1
+                760     CALL                            1
+                770     POP_TOP                         
+                772     LOAD_GLOBAL                     2: sys
+                784     LOAD_ATTR                       2: argv
+                794     LOAD_CONST                      1: 2
+                796     BINARY_SUBSCR                   
+                806     STORE_FAST                      5: encrypted_message
+                808     LOAD_GLOBAL                     2: sys
+                820     LOAD_ATTR                       2: argv
+                830     LOAD_CONST                      10: 3
+                832     BINARY_SUBSCR                   
+                842     STORE_FAST                      6: password
+                844     LOAD_GLOBAL                     2: sys
+                856     LOAD_ATTR                       2: argv
+                866     LOAD_CONST                      11: 4
+                868     BINARY_SUBSCR                   
+                878     STORE_FAST                      7: priv_key
+                880     LOAD_GLOBAL                     17: NULL + load_private_key
+                892     LOAD_FAST                       6: password
+                894     LOAD_FAST                       7: priv_key
+                896     PRECALL                         2
+                900     CALL                            2
+                910     STORE_FAST                      8: private_key
+                912     LOAD_GLOBAL                     19: NULL + decrypt_message
+                924     LOAD_FAST                       5: encrypted_message
+                926     LOAD_FAST                       8: private_key
+                928     PRECALL                         2
+                932     CALL                            2
+                942     STORE_FAST                      9: decrypted_message
+                944     LOAD_GLOBAL                     7: NULL + print
+                956     LOAD_CONST                      15: 'Decrypted message:'
+                958     LOAD_FAST                       9: decrypted_message
+                960     PRECALL                         2
+                964     CALL                            2
+                974     POP_TOP                         
+                976     LOAD_CONST                      0: None
+                978     RETURN_VALUE                    
+                980     LOAD_GLOBAL                     7: NULL + print
+                992     LOAD_CONST                      16: "Invalid mode. Use 'send' or 'receive'."
+                994     PRECALL                         1
+                998     CALL                            1
+                1008    POP_TOP                         
+                1010    LOAD_CONST                      0: None
+                1012    RETURN_VALUE                    
+        '__main__'
+    [Disassembly]
+        0       RESUME                          0
+        2       LOAD_CONST                      0: 0
+        4       LOAD_CONST                      1: None
+        6       IMPORT_NAME                     0: sys
+        8       STORE_NAME                      0: sys
+        10      LOAD_CONST                      0: 0
+        12      LOAD_CONST                      1: None
+        14      IMPORT_NAME                     1: math
+        16      STORE_NAME                      1: math
+        18      LOAD_CONST                      0: 0
+        20      LOAD_CONST                      1: None
+        22      IMPORT_NAME                     2: base64
+        24      STORE_NAME                      2: base64
+        26      LOAD_CONST                      0: 0
+        28      LOAD_CONST                      1: None
+        30      IMPORT_NAME                     3: random
+        32      STORE_NAME                      3: random
+        34      LOAD_CONST                      0: 0
+        36      LOAD_CONST                      2: ('RSA',)
+        38      IMPORT_NAME                     4: Crypto.PublicKey
+        40      IMPORT_FROM                     5: RSA
+        42      STORE_NAME                      5: RSA
+        44      POP_TOP                         
+        46      LOAD_CONST                      0: 0
+        48      LOAD_CONST                      3: ('core',)
+        50      IMPORT_NAME                     6: rsa
+        52      IMPORT_FROM                     7: core
+        54      STORE_NAME                      7: core
+        56      POP_TOP                         
+        58      LOAD_CONST                      4: <CODE> load_public_key
+        60      MAKE_FUNCTION                   0
+        62      STORE_NAME                      8: load_public_key
+        64      LOAD_CONST                      5: <CODE> load_private_key
+        66      MAKE_FUNCTION                   0
+        68      STORE_NAME                      9: load_private_key
+        70      LOAD_CONST                      6: <CODE> encrypt_chunk
+        72      MAKE_FUNCTION                   0
+        74      STORE_NAME                      10: encrypt_chunk
+        76      LOAD_CONST                      7: <CODE> decrypt_chunk
+        78      MAKE_FUNCTION                   0
+        80      STORE_NAME                      11: decrypt_chunk
+        82      LOAD_CONST                      8: <CODE> encrypt_message
+        84      MAKE_FUNCTION                   0
+        86      STORE_NAME                      12: encrypt_message
+        88      LOAD_CONST                      9: <CODE> decrypt_message
+        90      MAKE_FUNCTION                   0
+        92      STORE_NAME                      13: decrypt_message
+        94      LOAD_CONST                      10: <CODE> send_message_to_pidgin
+        96      MAKE_FUNCTION                   0
+        98      STORE_NAME                      14: send_message_to_pidgin
+        100     LOAD_CONST                      11: <CODE> main
+        102     MAKE_FUNCTION                   0
+        104     STORE_NAME                      15: main
+        106     LOAD_NAME                       16: __name__
+        108     LOAD_CONST                      12: '__main__'
+        110     COMPARE_OP                      2 (==)
+        116     POP_JUMP_FORWARD_IF_FALSE       12 (to 142)
+        118     PUSH_NULL                       
+        120     LOAD_NAME                       15: main
+        122     PRECALL                         0
+        126     CALL                            0
+        136     POP_TOP                         
+        138     LOAD_CONST                      1: None
+        140     RETURN_VALUE                    
+        142     LOAD_CONST                      1: None
+        144     RETURN_VALUE                    
